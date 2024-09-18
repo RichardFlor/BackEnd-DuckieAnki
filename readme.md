@@ -254,44 +254,7 @@ Authorization: Bearer
       - Não é necessário
 
 ---
-
-## Banco de dados
-
-```
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL UNIQUE,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL
-);
-CREATE TABLE Decks (
-  deckId VARCHAR(255) PRIMARY KEY,
-  userId INT,
-  FOREIGN KEY (userId) REFERENCES Users(id)
-);
-CREATE TABLE Questions (
-  questionId INT AUTO_INCREMENT PRIMARY KEY,
-  deckId VARCHAR(255),
-  question TEXT NOT NULL,
-  correctAnswer INT NOT NULL,
-  FOREIGN KEY (deckId) REFERENCES Decks(deckId)
-);
-CREATE TABLE Responses (
-  responseId INT AUTO_INCREMENT PRIMARY KEY,
-  questionId INT,
-  response TEXT NOT NULL,
-  FOREIGN KEY (questionId) REFERENCES Questions(questionId)
-);
-```
----
 # Deck
-Claro! Aqui está um exemplo de README para o seu projeto:
-
----
-
-# API de Gerenciamento de Decks
-
-Esta API fornece endpoints para criar, listar, buscar e excluir decks de usuários. Os decks consistem em conjuntos de perguntas e respostas associadas.
 
 ## Rotas Disponíveis
 
@@ -358,6 +321,31 @@ Esta API fornece endpoints para criar, listar, buscar e excluir decks de usuári
   - `id`: ID do deck a ser deletado.
 - **Autenticação**: Sim
 
----
+## Banco de dados
 
-Sinta-se à vontade para personalizar este README conforme necessário para o seu projeto.# BackEnd-DuckieAnki
+```
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+CREATE TABLE Decks (
+  deckId VARCHAR(255) PRIMARY KEY,
+  userId INT,
+  FOREIGN KEY (userId) REFERENCES Users(id)
+);
+CREATE TABLE Questions (
+  questionId INT AUTO_INCREMENT PRIMARY KEY,
+  deckId VARCHAR(255),
+  question TEXT NOT NULL,
+  correctAnswer INT NOT NULL,
+  FOREIGN KEY (deckId) REFERENCES Decks(deckId)
+);
+CREATE TABLE Responses (
+  responseId INT AUTO_INCREMENT PRIMARY KEY,
+  questionId INT,
+  response TEXT NOT NULL,
+  FOREIGN KEY (questionId) REFERENCES Questions(questionId)
+);
+```
