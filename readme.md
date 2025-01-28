@@ -38,7 +38,7 @@ API/
 1. **Clonar o Repositório**
 
    ```bash
-   git clone git@github.com:FKouto/DuckieAnki-API.git
+   git clone https://github.com/RichardFlor/BackEnd-DuckieAnki.git
    cd DuckieAnki-API
    ```
 
